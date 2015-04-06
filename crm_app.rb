@@ -54,42 +54,44 @@ class CRM
 		@rolodex.add_contact(contact)
 	end
 
-	# 	def modify_contact 
-	# 	print "Enter the 'id' of the contact that you want to modify."
-	# 	id = gets.chomp
-	# 	print "Do you want to edit #{id}?"
-	# 	a = gets.chomp.capitalize
-	# 	if a == "Yes"
-	# 		puts "Do you want to change first name, last name, email, or notes of #{id}"
-	# 		modify_contact2 = gets.chomp.downcase
-	# 	else a == "No"
-	# 		print main_menu
-	# 	end
-	# end
+	def modify_contact 
+		print "Enter the 'id' of the contact that you want to modify. "
+		choose_id = gets.chomp
+		print "Do you want to edit #{choose_id}? Yes or No. "
+		affirmation = gets.chomp.capitalize
+		if affirmation == "Yes"
+			puts "Do you want to change [1]first name, [2]last name, [3]email, or [4]notes of #{choose_id}"
+			modify_selection = gets.chomp.to_i
+		else affirmation == "No"
+			print main_menu
+		end
+	end
 
-	# 	def modify_contact2
-	# 	if modify_contact2 == "first name"
-	# 		puts "Your contact's first name is #{first_name}. Change it below."
-	# 		first_name_change = gets.chomp.capitalize
-	# 	elsif modify_contact2 == "last name"
-	# 		puts "Your contact's last name is #{last_name}. Change it below."
-	# 		last_name_change = gets.chomp.capitalize
-	# 	elsif modify_contact2 == "email"
-	# 		puts "Your contact's email is #{email}. Change it below."
-	# 		email_change = gets.chomp.downcase
-	# 	elsif modify_contact2 == "note"
-	# 		puts "Your contact's note(s) is/are: #{note}. Change it below."
-	# 		note_change = gets.chomp.capitalize
-	# 	else print main_menu
-	# 	end 
-	# end
+	def modify_contact2(contact_id, modify_selection)
+		if modify_selection  == 1
+			puts "Your contact's first name is #{first_name}. Change it below."
+			first_name_change = gets.chomp.capitalize
+		elsif modify_contact2 == 2
+			puts "Your contact's last name is #{last_name}. Change it below."
+			last_name_change = gets.chomp.capitalize
+		elsif modify_contact2 == 3
+			puts "Your contact's email is #{email}. Change it below."
+			email_change = gets.chomp.downcase
+		elsif modify_contact2 == 4
+			puts "Your contact's note(s) is/are: #{note}. Change it below."
+			note_change = gets.chomp.capitalize
+		else print main_menu
+		end 
+		contact = Contact.new(first_name,last_name,email,note)
+		@rolodex.modify_contact(contact)
+	end
 
 
 	def display_contact
-		print "Enter id of what contact you would like to view:"
+		print "Enter id of what contact you would like to view: "
 		contact_id = gets.chomp.to_i
 		contact = @rolodex.find(contact_id)
-		print contact
+		contact.to_s
 	end
 end
 
