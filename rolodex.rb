@@ -1,4 +1,5 @@
 class Rolodex
+	attr_reader :contacts
 	def initialize #a default value for a .new object 
 		@contacts = [ ]
 		@id = 1  #an array
@@ -15,17 +16,13 @@ class Rolodex
 		end
 	end
 
-	def modify_contact(contact_id, modify_selection)
-		@contacts.find do |contact_id|
-		contact.id == contact_id 
-		if modify_selection == 1
-			first_name_change = first_name.replace
-		elsif modify_selection == 2
-			last_name_change = last_name.replace
-		elsif modify_selection == 3
-			email_change = email.replace
-		else modify_selection == 4
-			note_change = note.replace
+	def delete(contact)
+		@contacts.delete(contact)
+	end 
+
+	def display_all
+		@contacts.each do |contact|
+			puts contact.to_s
 		end
 	end
 end
