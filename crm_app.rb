@@ -42,13 +42,13 @@ class CRM
 	end 
 
 	def add_contact
-		print "Enter a first name."
+		print "Enter a first name. "
 		first_name = gets.chomp
-		print "Enter a last name."
+		print "Enter a last name. "
 		last_name = gets.chomp
-		print "Enter an email."
+		print "Enter an email. "
 		email = gets.chomp
-		print "Enter a note for contact."
+		print "Enter a note for contact. "
 		note = gets.chomp
 		contact = Contact.new(first_name,last_name,email,note)
 		@rolodex.add_contact(contact)
@@ -67,14 +67,33 @@ class CRM
 	# 	end
 	# end
 
+	# 	def modify_contact2
+	# 	if modify_contact2 == "first name"
+	# 		puts "Your contact's first name is #{first_name}. Change it below."
+	# 		first_name_change = gets.chomp.capitalize
+	# 	elsif modify_contact2 == "last name"
+	# 		puts "Your contact's last name is #{last_name}. Change it below."
+	# 		last_name_change = gets.chomp.capitalize
+	# 	elsif modify_contact2 == "email"
+	# 		puts "Your contact's email is #{email}. Change it below."
+	# 		email_change = gets.chomp.downcase
+	# 	elsif modify_contact2 == "note"
+	# 		puts "Your contact's note(s) is/are: #{note}. Change it below."
+	# 		note_change = gets.chomp.capitalize
+	# 	else print main_menu
+	# 	end 
+	# end
+
+
 	def display_contact
 		print "Enter id of what contact you would like to view:"
 		contact_id = gets.chomp.to_i
 		contact = @rolodex.find(contact_id)
-		puts contact 
+		print contact
 	end
 end
 
+CRM.run
 
 
 
@@ -82,22 +101,7 @@ end
 
 
 
-# 	def modify_contact2
-# 		if modify_contact2 == "first name"
-# 			puts "Your contact's first name is #{first_name}. Change it below."
-# 			first_name_change = gets.chomp.capitalize
-# 		elsif modify_contact2 == "last name"
-# 			puts "Your contact's last name is #{last_name}. Change it below."
-# 			last_name_change = gets.chomp.capitalize
-# 		elsif modify_contact2 == "email"
-# 			puts "Your contact's email is #{email}. Change it below."
-# 			email_change = gets.chomp.downcase
-# 		elsif modify_contact2 == "note"
-# 			puts "Your contact's note(s) is/are: #{note}. Change it below."
-# 			note_change = gets.chomp.capitalize
-# 		else print main_menu
-# 		end 
-# 	end
+
 
 # 	def display_all
 # 		print contact[]
